@@ -13,9 +13,10 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("/Crud_React/Preguntas").then(response => {
+        axios.get("/Algebra_model_game/Preguntas").then(response => {
             this.setState({ data: response.data });
         }).catch(error => {
+            console.log("Tuve un error: ");
             console.info(error);
             this.setState({ showAlert: true, alertText: "ERROR EN LA OBTENCION DE DATOS" });
         })
@@ -35,7 +36,8 @@ class Home extends React.Component {
                         : null
                 }
                 {/* <Button variant="info" style={{ margin: "12px" }}> */}
-                    <Link to="/Crud_React/crearPregunta" className="btn btn-info CustomLink" style={{ margin: "12px" }}>Añadir nueva pregunta</Link>
+                    <Link to="/Algebra_model_game/crearPregunta" className="btn btn-info CustomLink" style={{ margin: "12px" }}>Añadir nueva pregunta</Link>
+                    <Link to="/Algebra_model_game/level?id=4" className="btn btn-info CustomLink" style={{ margin: "12px" }}>LEVEL</Link>
                 {/* </Button> */}
                 <Table striped bordered >
                     <thead>
@@ -46,8 +48,8 @@ class Home extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            data.map(pregunta => {
-                                return <Pregunta {...pregunta} />
+                            data.map(id => {
+                                return <Pregunta {...id} />
                             })
                         }
                     </tbody>

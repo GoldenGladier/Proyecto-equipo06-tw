@@ -15,7 +15,7 @@ class Info extends React.Component {
     componentDidMount() {
         const qId = new URLSearchParams(window.location.search).get("id");
         if (qId) {
-            axios.get("/Crud_React/Preguntas?id="+qId).then(response => {
+            axios.get("/Algebra_model_game/Preguntas?id="+qId).then(response => {
                 const question = response.data[0];
                 this.setState({ ...question });
             }).catch(error => {

@@ -9,23 +9,27 @@ import "./styles/styles.css"
 import Info from "./components/info";
 import Create from "./components/create";
 import Edit from "./components/edit";
+import Level1 from "./components/level1";
 
 const App = () => {
     return (
         <div>
             <Switch>
-                <Route exact path="/Crud_React/">
+                <Route exact path="/Algebra_model_game/">
                     <Home />
                 </Route>
-                <Route exact path="/Crud_React/info">
+                <Route exact path="/Algebra_model_game/info">
                     <Info />
                 </Route>
-                <Route exact path="/Crud_React/crearPregunta">
+                <Route exact path="/Algebra_model_game/crearPregunta">
                     <Create />
                 </Route>   
-                <Route exact path="/Crud_React/update">
+                <Route exact path="/Algebra_model_game/update">
                     <Edit />
-                </Route>                               
+                </Route>     
+                <Route exact path="/Algebra_model_game/level">
+                    <Level1 />
+                </Route>                                             
                 <Route path="*" render={() => <h1>ERROR 404: Recurso no encontrado.</h1>} />
             </Switch>
         </div>
