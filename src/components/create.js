@@ -33,66 +33,49 @@ class Create extends React.Component {
 
                 <form method="POST" action="createQuestion" enctype = "multipart/form-data">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Pregunta</span>
-                        <input type="text" class="form-control" placeholder="Ejemplo: ¿En qué se parece un cuervo a un escritorio?" aria-describedby="basic-addon1" name="qtn" required />
+                        <span class="input-group-text" id="basic-addon1">Ejercicio</span>
+                        <input type="text" class="form-control" placeholder="Area de un rectangulo" aria-describedby="basic-addon1" name="ejer" required />
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Respuesta</span>
-                        <input type="text" class="form-control" placeholder="Ejemplo: OP1-3;OP2-4;OP3-1;OP4-2" aria-describedby="basic-addon1" name="answer" required />                       
-                    </div> 
                     <hr />
-                     {/* <!--DRAG OPTIONS-->  */}
+                    {/*<!--LEVEL OPTION--> */}
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Drag Opción 1</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Drag" aria-describedby="basic-addon1" name="d_text_opt1" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01" name="d_file_opt1" size = "45" required />
-                    </div>                      
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Drag Opción 2</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Drag" aria-describedby="basic-addon1" name="d_text_opt2" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01" name="d_file_opt2" required /> 
-                    </div>   
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Drag Opción 3</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Drag" aria-describedby="basic-addon1" name="d_text_opt3" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01" name="d_file_opt3" required />
-                    </div>                     
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Drag Opción 4</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Drag" aria-describedby="basic-addon1" name="d_text_opt4" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01" name="d_file_opt4" required />
-                    </div>                     
+                        <label for="tipo">Tipo:   </label>
+                        <select name="tipo" class="form-control" aria-describedby="basic-addon1" required>
+                            <option value="1">Completar binomios</option>
+                            <option value="2">Completar Area total</option>
+                        </select>
+                    </div>
                     <hr />
-                     {/* <!--TARGET OPTIONS-->  */}
+                    {/*<!--AREA VALUES OPTIONS-->*/}
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Target Opción 1</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Target" aria-describedby="basic-addon1" name="t_text_opt1" required />                       
+                        <h3>Valores para el área total</h3>
+                        <img src="/src/images/plantilla.png" /><br /><br />
+                        <label for="h1">Valor de h1: </label><input type="text" class="form-control" name="h1" placeholder="8x" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="h2">Valor de h2: </label><input type="text" class="form-control" name="h2" placeholder="56" size="3"aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="w1">Valor de w1: </label><input type="text" class="form-control" name="w1" placeholder="65" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="w2">Valor de w2: </label><input type="text" class="form-control" name="w2" placeholder="9" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="area1">Valor de Area 1: </label><input type="text" class="form-control" name="area1" placeholder="36" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="area2">Valor de Area 2: </label><input type="text" class="form-control" name="area2" placeholder="5x" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="area3">Valor de Area 3: </label><input type="text" class="form-control" name="area3" placeholder="62" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                        <label for="area4">Valor de Area 4: </label><input type="text" class="form-control" name="area4" placeholder="11" size="3" aria-describedby="basic-addon1" required/><br /><br />
+                    </div>
+                    <hr />
 
-                        <input type="file" class="form-control" id="inputGroupFile01" name="t_file_opt1" required />
-                    </div>                      
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Target Opción 2</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Target" aria-describedby="basic-addon1" name="t_text_opt2" required />                       
+                        <span class="input-group-text" id="basic-addon1">Expresion de Area total: </span>
+                        <input type="text" class="form-control" placeholder="8x^2+9" size="12" aria-describedby="basic-addon1" name="expresion" required />                       
+                    </div><br />
 
-                        <input type="file" class="form-control" id="inputGroupFile01" name="t_file_opt2" required />
-                    </div>   
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Target Opción 3</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Target" aria-describedby="basic-addon1" name="t_text_opt3" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01" name="t_file_opt3" required />
-                    </div>                     
+                        <span class="input-group-text" id="basic-addon1">Area total en binomios: </span>
+                        <input type="text" class="form-control" placeholder="(9x + 8)(24 + 9)" size="12" aria-describedby="basic-addon1" name="binomios" required />                       
+                    </div>
+                    <hr />
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Target Opción 4</span>
-                        <input type="text" class="form-control" placeholder="Nombre del Target" aria-describedby="basic-addon1" name="t_text_opt4" required />                       
-
-                        <input type="file" class="form-control" id="inputGroupFile01"  name = "t_file_opt4" size = "45"  required />
-                    </div>                     
-                    
+                        <span class="input-group-text" id="basic-addon1">Imagen: </span>
+                        <input type="file" class="form-control" id="file"  name = "file_image" size = "10"  required />
+                    </div>
+             
                     <button type="submit" class="btn btn-primary">Crear Pregunta</button>
                     <br /><br />
                 </form>                 
