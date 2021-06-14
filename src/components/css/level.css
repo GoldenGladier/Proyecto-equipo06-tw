@@ -6,6 +6,10 @@
 h1,h2,h3,h4,p{
     text-align: center;
 }
+.navbar{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
 /* .board-content.container{
     background: tomato;
 } */
@@ -22,7 +26,7 @@ h1,h2,h3,h4,p{
 }
 .top-data-board{
     padding: 12px 0;
-    min-height: 100px; /*Aqui Altura de medidas top*/
+    min-height: 65px; /*Aqui Altura de medidas top*/
 }
 .top-data-board h2, h3{
     margin: 0;
@@ -32,8 +36,8 @@ h1,h2,h3,h4,p{
     color: purple;
 }
 .left-data-line{    
-    min-height: 30vh; /* DEFINE LA ALTURA DE LA LINEA IZQUIERDA */
-    height: 100%;
+    min-height: 25vh; /* DEFINE LA ALTURA DE LA LINEA IZQUIERDA 2 (LA DE ABAJO) */
+    height: 100%;   /* LA DE ARRIBA SE AJUSTA SOLA*/
     width: 100%;
     margin: 0;
     padding: 0;
@@ -91,7 +95,7 @@ h1,h2,h3,h4,p{
     padding: 0;
 }
 .board{
-    min-height: 30vh; /* DEFINE LA ALTURA DEL CUADRO */
+    /* min-height: 30vh; DEFINE LA ALTURA DEL CUADRO */
     /* max-height: 40vh; */
     width: 100%;
     margin: 0;
@@ -105,7 +109,18 @@ h1,h2,h3,h4,p{
 }
 .board h4{
     text-align: center;
-    margin-top: 13vh;
+}
+.rows-top{
+    min-height: 40vh;
+}
+.rows-top h4{
+    margin-top: 20vh;
+}
+.rows-bottom{
+    min-height: 25vh;
+}
+.rows-bottom h4{
+    margin-top: 10vh;
 }
 .border-solid{
     border: solid 1px #212529;
@@ -141,6 +156,7 @@ h1,h2,h3,h4,p{
 } */
 .dimentions{ 
     text-align: center;
+    margin-top: 20vh;
 }
 .results-total-area-model{
     margin-top: 20px;
