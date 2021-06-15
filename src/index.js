@@ -10,6 +10,7 @@ import Info from "./components/info";
 import Create from "./components/create";
 import Edit from "./components/edit";
 import Level1 from "./components/level1";
+import LevelView from "./components/level_view";
 
 const App = () => {
     return (
@@ -29,7 +30,10 @@ const App = () => {
                 </Route>     
                 <Route exact path="/Algebra_model_game/level">
                     <Level1 />
-                </Route>                                             
+                </Route> 
+                <Route exact path="/Algebra_model_game/view">
+                    <LevelView />
+                </Route>                                                               
                 <Route path="*" render={() => <h1>ERROR 404: Recurso no encontrado.</h1>} />
             </Switch>
         </div>

@@ -24,21 +24,10 @@ class ResultsBox extends React.Component {
                 <div className="results-total-area-model">
                     <h3>Area total</h3>  
                     <h4>{this.props.totalArea}</h4>
-                    {/* <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Result" aria-label="Username" aria-describedby="basic-addon1"/>
-                    </div>                                 */}
                 </div> 
 
-                {/* ENTRADA INPUT */}                
-                {/* <div className="results-total-area-input">
-                    <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"/>
-                        <span class="input-group-text">x +</span>
-                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"/>
-                    </div>                                
-                </div>    */}
                  {/* ========= ========= */}  
-                 <input onClick={handleButtonClic} type="submit" value="Revisar" class="btn btn-outline-dark"></input>                                                       
+                 <input onClick={handleButtonClic} type="submit" value="Revisar" class={'btn btn-outline-dark ' + this.props.testView}></input>                                                       
             </div>
         {/* ========= ========= ========= ========= ========= */}
         </div>

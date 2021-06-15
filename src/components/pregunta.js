@@ -27,17 +27,21 @@ const Pregunta = ({ id, nombre }) => {
         <tr>
             <td>{nombre}</td>
             <td className="AlignCenter">
-                <Link to={`/Algebra_model_game/info?id=${id}`} className="btn btn-success M-6 CustomLink">
-                    Ver pregunta
+                <Link to={`/Algebra_model_game/view?id=${id}`} className="btn btn-success M-6 CustomLink">
+                    Ver ejercicio
                 </Link>
 
                 <Link to={`/Algebra_model_game/update?id=${id}`} className="btn btn-warning M-6 CustomLink" >
-                    Editar pregunta
+                    Modificar ejercicio
                 </Link>
                 
                 <Link onClick={handleClickEliminar} className="btn btn-danger M-6 CustomLink">
-                    Eliminar pregunta
-                </Link>                
+                    Eliminar ejercicio
+                </Link>       
+
+                <Link to={`/Algebra_model_game/level?id=${id}`} className="btn btn-info M-6 CustomLink">
+                    Probar ejercicio
+                </Link>                         
             </td>
         </tr>
     )

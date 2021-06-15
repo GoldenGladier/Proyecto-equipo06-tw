@@ -30,7 +30,7 @@ class Level extends React.Component {
 
         binom1 : "()",
         binom2 : "()",
-        testView : ""        
+        testView : "disable-view"        
     }
 
     componentDidMount() {

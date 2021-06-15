@@ -36,8 +36,10 @@ class Home extends React.Component {
                         : null
                 }
                 {/* <Button variant="info" style={{ margin: "12px" }}> */}
-                    <Link to="/Algebra_model_game/crearPregunta" className="btn btn-info CustomLink" style={{ margin: "12px" }}>Añadir nueva pregunta</Link>
-                    <Link to="/Algebra_model_game/level?id=4" className="btn btn-info CustomLink" style={{ margin: "12px" }}>LEVEL</Link>
+                    <Link to="/Algebra_model_game/crearPregunta" className="btn btn-info CustomLink" style={{ margin: "12px" }}>
+                        Crear nuevo ejercicio
+                    </Link>
+                    {/* <Link to="/Algebra_model_game/level?id=4" className="btn btn-info CustomLink" style={{ margin: "12px" }}>LEVEL</Link> */}
                 {/* </Button> */}
                 <Table striped bordered >
                     <thead>

@@ -31,16 +31,8 @@ class ResultsBox extends React.Component {
                     <input value={this.state.input} onChange={this.handleChange} type="text" class="form-control area-total-input" placeholder="Ejemplo: x²+7x-5"></input>
                 </div> 
 
-                {/* ENTRADA INPUT */}                
-                {/* <div className="results-total-area-input">
-                    <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"/>
-                        <span class="input-group-text">x +</span>
-                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"/>
-                    </div>                                
-                </div>    */}
                  {/* ========= ========= */}  
-                 <input onClick={() => handleButtonClicType2(this.state.input)} type="submit" value="Revisar" class="btn btn-outline-dark"></input>                                                       
+                 <input onClick={() => handleButtonClicType2(this.state.input)} type="submit" value="Revisar" class={'btn btn-outline-dark ' + this.props.testView}></input>                                                       
             </div>
         {/* ========= ========= ========= ========= ========= */}
         </div>
