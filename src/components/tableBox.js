@@ -1,7 +1,7 @@
 import React from 'react';
-import MathJax from './mathjax';
+// import MathJax from './mathjax';
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 
 class TableBox extends React.Component {
     constructor(props) {
@@ -11,7 +11,6 @@ class TableBox extends React.Component {
             input2 : '',
         }        
     }
-
     handleChange1 = (e) =>{
         this.setState({ input1: e.target.value});
         // console.log("Input 1: " + e.target.value);
@@ -21,7 +20,7 @@ class TableBox extends React.Component {
         this.setState({ input2: e.target.value});
         // console.log("Input 1: " + e.target.value);
         this.props.handleInput2Change(e.target.value);        
-    }    
+    }   
 
     render () {
         const{ handleInput1Change } = this.props;     

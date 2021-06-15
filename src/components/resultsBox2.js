@@ -1,32 +1,34 @@
 import React from 'react';
-import MathJax from './mathjax';
+// import MathJax from './mathjax';
 import PropTypes from 'prop-types';
 
 class ResultsBox extends React.Component {
     constructor(props) {
-        super(props);     
+        super(props); 
+        this.state = {
+            input : '',
+        }                  
     }
+    handleChange = (e) =>{
+        this.setState({input : e.target.value});
+        console.log("Input: " + e.target.value);
+    } 
+    
     render () {
-    const{ handleButtonClic } = this.props;     
+    const{ handleButtonClicType2 } = this.props;     
       return (
         <div class="row row-cols-1 board-results">
         {/* RESULTADOS - TABLA INTERACTIVA */}
             <div class="col dimentions">
                 <div className="results-dimentions">
                     <h3>Dimensiones</h3>  
-                    <h4>
-                        {this.props.multiple1} 
-                    </h4>
-                    <h4>
-                        {this.props.multiple2}                      
+                    <h4 class="normal-color">
+                      {this.props.binoms}                     
                     </h4>
                 </div>
                 <div className="results-total-area-model">
                     <h3>Area total</h3>  
-                    <h4>{this.props.totalArea}</h4>
-                    {/* <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Result" aria-label="Username" aria-describedby="basic-addon1"/>
-                    </div>                                 */}
+                    <input value={this.state.input} onChange={this.handleChange} type="text" class="form-control area-total-input" placeholder="Ejemplo: x²+7x-5"></input>
                 </div> 
 
                 {/* ENTRADA INPUT */}                
@@ -38,7 +40,7 @@ class ResultsBox extends React.Component {
                     </div>                                
                 </div>    */}
                  {/* ========= ========= */}  
-                 <input onClick={handleButtonClic} type="submit" value="Revisar" class="btn btn-outline-dark"></input>                                                       
+                 <input onClick={() => handleButtonClicType2(this.state.input)} type="submit" value="Revisar" class="btn btn-outline-dark"></input>                                                       
             </div>
         {/* ========= ========= ========= ========= ========= */}
         </div>
@@ -47,7 +49,7 @@ class ResultsBox extends React.Component {
   }
 
 ResultsBox.PropTypes = {
-    handleButtonClic: PropTypes.func.isRequired,
+    handleButtonClicType2: PropTypes.func.isRequired,
 }
   
 export default ResultsBox;

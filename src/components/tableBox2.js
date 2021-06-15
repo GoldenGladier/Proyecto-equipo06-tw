@@ -1,7 +1,5 @@
 import React from 'react';
-import MathJax from './mathjax';
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
 
 class TableBox extends React.Component {
     constructor(props) {
@@ -61,19 +59,12 @@ class TableBox extends React.Component {
                     <div className="top-data-board">
                         {/* <h3>{this.props.binom1}</h3> */}
                         <div className="top-data-line row">
-                            <div class="border-solid purple col-7"></div>
-                            <div class="border-solid purple col-5"></div>
+                            <div class="border-solid col-7"></div>
+                            <div class="border-solid col-5"></div>
                         </div>
                         <div className="top-data row">
                             <div class="col col-7">{this.props.equation1}</div>
-                            {/* <div class="col col-6"><MathJax mathText={this.props.equation2} /></div> */}
-                            <div class="col col-5">
-                                {/* EJERCICIO DE TIPO 1 */}
-                                <input value={this.state.input1} type="number" class="form-control"
-                                    onChange={this.handleChange1}/> 
-                                
-                                 {/* {this.handleChange1} */}
-                            </div>
+                            <div class="col col-5">{this.props.equation2}</div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +79,7 @@ class TableBox extends React.Component {
                 <div class="col-2 pad-mar-0">
                 { /* (  PARTE INFERIOR IZQUIERA ) */ }
                         <div className="left-data-line row">
-                            <div class="col col-1 border-solid tomato center-all">
+                            <div class="col col-1 border-solid center-all">
                                 
                             </div>
                             <div class="col col-11 center-all">
@@ -101,11 +92,9 @@ class TableBox extends React.Component {
                 <div class="col-2 pad-mar-0">
                 { /* (  PARTE INFERIOR IZQUIERA ) */ }
                         <div className="left-data-line row">
-                            <div class="col col-1 border-solid tomato"></div>
+                            <div class="col col-1 border-solid"></div>
                             <div class="col col-11 center-all">
-                                <input type="number" class="form-control" 
-                                    onChange={this.handleChange2}/> 
-                                {/* <MathJax mathText={this.props.sizeh2} /> */}
+                                {this.props.sizeh2}
                             </div>
                         </div>                        
                 </div>

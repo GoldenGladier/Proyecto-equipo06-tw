@@ -1,5 +1,5 @@
 import React from 'react';
-import MathJax from './mathjax';
+// import MathJax from './mathjax';
 import PropTypes from 'prop-types';
 
 class ResultsBox extends React.Component {
