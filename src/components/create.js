@@ -7,7 +7,7 @@ class Create extends React.Component {
     render() {
         return (
             <Container className="MarginContainer">
-                <h1>Crear una nueva pregunta.</h1>
+                <h1>Crear un nuevo ejercicio</h1>
 
                 <form method="POST" action="createQuestion" enctype = "multipart/form-data">
                     <div class="input-group mb-3">

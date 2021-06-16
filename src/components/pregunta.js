@@ -2,26 +2,39 @@ import React from "react";
 // import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 const Pregunta = ({ id, nombre }) => {
 
     const handleClickEliminar = (event) => {
         //Eliminar
-        console.info(id + " llamo a la función eliminar.")
-        axios.get(`/Algebra_model_game/deleteQuestion?idList=${id}`).then(response => {
-            console.info(response.data);
-            // if (response.data.message) {
-            //     alert(response.data.message);
-            // } else {
-            //     alert(response.data.error);
-            // }
-        }).catch(error => {
-            console.info(error);
-            // alert(response.data.message);
-        }).finally(() => {
-            window.location.href = "/Algebra_model_game/";
-        });
+
+        swal({title: "Eliminar", 
+        text: "¿Está seguro que desea eliminar esta pregunta", 
+        icon: "warning", 
+        buttons: ["No","Confirmar"]
+        }).then(respuesta => {
+            if(respuesta){
+                console.info(id + " llamo a la función eliminar.")
+                axios.get(`/Algebra_model_game/deleteQuestion?idList=${id}`).then(response => {
+                    console.info(response.data);
+                    swal({ text: "La pregunta se ha eliminado exitosamente",
+                    icon:"success",
+                    timer: "60000"
+                    })
+                }).catch(error => {
+                    console.info(error);
+                }).finally(() => {
+                    window.location.href = "/Algebra_model_game/";
+                });
+
+                
+            }else{
+                window.location.href = "/Algebra_model_game/";
+            }
+        })
     }
+
 
     return (
         <tr>
