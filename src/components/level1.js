@@ -31,7 +31,9 @@ class Level extends React.Component {
         binom1 : "()",
         binom2 : "()",
         testView : "",
-        powerClock : "encendido"        
+        powerClock : "encendido",
+        teclado : 'disable-view', //
+        input : ''       
     }
 
     componentDidMount() {
@@ -128,7 +130,7 @@ class Level extends React.Component {
             swal("¡Faltan datos!", "Debes llenar ambos campos para completar los dos binomios.", "info");
         }
     }
-    handleButtonClicType2 = (respuesta_tipo2) => {       
+    handleButtonClicType2 = (respuesta_tipo2) => {     
         console.log(respuesta_tipo2); 
         if((respuesta_tipo2 != '')){
             if(respuesta_tipo2 == this.state.expresion){
@@ -145,6 +147,18 @@ class Level extends React.Component {
             swal("¡Ingresa una respuesta!", "El campo de respuesta esta vacio.", "info");
         }
     }
+    mostrarTeclado = () => {
+        console.log("Mostrar teclado");
+        // this.state.teclado = '';
+        this.setState({teclado: ''});
+        console.log("Mostrar teclado" + this.state.teclado);
+    }
+    ocultarTeclado = (respuestaUsuario) => {
+        this.setState({teclado: 'disable-view'});
+        // this.setState({teclado: 'disable-view', input: respuestaUsuario});
+        console.log("Ocultar teclado" + this.state.teclado);
+    }    
+
     render() {
         let tablero = '';
         let resultados = '';
@@ -168,9 +182,6 @@ class Level extends React.Component {
                     testView={this.state.testView}
                 ></TableBox1>  
             );
-
-            // tablero = (<h1>HolaTablero1</h1>);
-            // resultados = (<h1>Hola1</h1>);
         }
         else{
             console.log(this.state.tipo + " - Cargue el 2" + sizeh2_answer);
@@ -184,8 +195,10 @@ class Level extends React.Component {
             );
             resultados = (
                 <ResultBox2 binoms={respuesta} testView={this.state.testView}
-                totalArea={expresion} handleButtonClicType2={this.handleButtonClicType2}
-                powerClock={this.state.powerClock}></ResultBox2>
+                input={this.state.input} handleButtonClicType2={this.handleButtonClicType2}
+                powerClock={this.state.powerClock} keyBoardView={this.state.teclado}
+                mostrarTeclado={this.mostrarTeclado} ocultarTeclado={this.ocultarTeclado}
+                ></ResultBox2>
             );  
             // resultados = (<h1>Hola2</h1>)
         }

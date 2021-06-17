@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Timer extends React.Component {
-    // constructor(props) {
-    //     super(props);     
-    // }
     constructor(...args) {
         super(...args);
         this.escribir = this.escribir.bind(this);        
@@ -78,7 +74,7 @@ class Timer extends React.Component {
     const{ hText, mText, sText } = this.state;     
       return (
         <div class={"row row-cols-1 timer " + this.props.testView }>
-            <h5>Tiempo: <span className="time-text">{hText + ':' + mText + ':' + sText}</span></h5>
+            <h5>Tiempo <i class="bi bi-alarm"></i> : {hText + ':' + mText + ':' + sText}</h5>
         </div>
       );
     }
