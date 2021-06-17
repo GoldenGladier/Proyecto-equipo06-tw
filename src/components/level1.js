@@ -271,11 +271,15 @@ class Level extends React.Component {
                     {resultados} 
                     
                 </div>
-                <hr />
+                
                 {/*MULTIMEDIA*/}
+                <hr />                
+                <h1>Multimedia</h1>
                 <div className="multimedia" >
                     {multimedia}
-                </div>           
+                </div>  
+                <hr />                
+        
             </div>
         )
     }

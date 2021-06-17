@@ -37,7 +37,7 @@ class Teclado extends React.Component {
                 <div className="teclado">
                     <button className="Iluminar" onClick={this.clear} id="clear">Limpiar</button>
                     <button className="Iluminar" onClick={this.borrar} id="borrar"><i class="bi bi-backspace"></i></button>
-                    <button className="x" name="x²" onClick={this.handleClick}>X²</button>
+                    <button className="x" name="x^2" onClick={this.handleClick}>X²</button>
                     <button className="botones" name="7" onClick={this.handleClick}>7</button>
                     <button className="botones" name="8" onClick={this.handleClick}>8</button>
                     <button className="botones" name="9" onClick={this.handleClick}>9</button>

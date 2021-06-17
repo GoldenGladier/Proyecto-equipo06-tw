@@ -56,16 +56,16 @@ class Edit extends React.Component {
         console.log(this.state);
         return (
             
-            <Container className="MarginContainer">
+            <div className="Level">
                <div className="Level"> <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container-fluid">
                             <h1 class="navbar-brand">{this.state.nombre}</h1>
                         <span class="navbar-text">
-                            <Link to="/Algebra_model_game/" class="btn btn-outline-light">Volver al inicio</Link>                            
+                            <Link to="/Algebra_model_game/home" class="btn btn-outline-light">Volver al inicio</Link>                            
                         </span>                        
                     </div>
                 </nav>
-                </div>
+            </div>
 
                 <h1>Modificar ejercicio</h1>
 
@@ -153,7 +153,7 @@ class Edit extends React.Component {
                     <br /><br />
                 </form>                 
 
-            </Container>
+            </div>
         );
     }
 }
