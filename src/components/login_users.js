@@ -98,13 +98,14 @@ class Login extends React.Component {
                     {/* <img className="imagen" src={math}/> */}
                     {/* <i class="bi bi-people-fill"></i>                     */}
                     <div className="form-group">
-                        <label>Usuario</label>
+                        <br/>                          
+                        <label className="label-form">Usuario</label>
                         <br/>
                         <div className="containerSecundario">
                         {/* <img className="mini" src={user}/> */}
                         <input value={this.state.username} onChange={this.handleChangeUsername} type="text" id="username" />
                         <br/>
-                        <label>Contraseña</label>
+                        <label className="label-form">Contraseña</label>
                         <br/>
                         <input value={this.state.password} onChange={this.handleChangePassword} type="password" id="password" />
                         {/* <img className="mini" src={candado}/><input type="password"  id="password" /> */}
