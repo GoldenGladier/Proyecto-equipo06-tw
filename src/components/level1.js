@@ -30,7 +30,8 @@ class Level extends React.Component {
 
         binom1 : "()",
         binom2 : "()",
-        testView : ""        
+        testView : "",
+        powerClock : "encendido"        
     }
 
     componentDidMount() {
@@ -114,6 +115,7 @@ class Level extends React.Component {
         if((this.state.binom1 != '()') && (this.state.binom2 != '()')){
             var respuestaUsuario = this.state.binom1 + this.state.binom2;
             if(this.state.respuesta == respuestaUsuario){
+                this.setState({powerClock: "apagado"});
                 swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success");
                 console.log("Revisando: Bien");
             }
@@ -130,6 +132,7 @@ class Level extends React.Component {
         console.log(respuesta_tipo2); 
         if((respuesta_tipo2 != '')){
             if(respuesta_tipo2 == this.state.expresion){
+                this.setState({powerClock: "apagado"});
                 swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success");
                 console.log("Revisando: Bien");
             }
@@ -155,7 +158,7 @@ class Level extends React.Component {
             resultados = (
                 <ResultBox1 multiple1={this.state.binom1} multiple2={this.state.binom2}
                 totalArea={expresion} handleButtonClic={this.handleButtonClic}
-                testView={this.state.testView}></ResultBox1>
+                testView={this.state.testView} powerClock={this.state.powerClock}></ResultBox1>
             );            
             tablero = (
                 <TableBox1 width={width} height={height} sizeh1={sizeh1} sizeh2={sizeh2_answer} 
@@ -179,7 +182,8 @@ class Level extends React.Component {
             );
             resultados = (
                 <ResultBox2 binoms={respuesta} testView={this.state.testView}
-                totalArea={expresion} handleButtonClicType2={this.handleButtonClicType2}></ResultBox2>
+                totalArea={expresion} handleButtonClicType2={this.handleButtonClicType2}
+                powerClock={this.state.powerClock}></ResultBox2>
             );  
             // resultados = (<h1>Hola2</h1>)
         }

@@ -1,11 +1,12 @@
 import React from 'react';
-// import MathJax from './mathjax';
+import Timer from './timer';
 import PropTypes from 'prop-types';
 
-class ResultsBox extends React.Component {
+class ResultsBox extends React.Component {    
     constructor(props) {
         super(props);     
-    }
+    }    
+
     render () {
     const{ handleButtonClic } = this.props;     
       return (
@@ -26,8 +27,8 @@ class ResultsBox extends React.Component {
                     <h4>{this.props.totalArea}</h4>
                 </div> 
 
-                 {/* ========= ========= */}  
                  <input onClick={handleButtonClic} type="submit" value="Revisar" class={'btn btn-outline-dark ' + this.props.testView}></input>                                                       
+                <Timer testView={this.props.testView} power={this.props.powerClock}></Timer>
             </div>
         {/* ========= ========= ========= ========= ========= */}
         </div>

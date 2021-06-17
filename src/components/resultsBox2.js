@@ -1,5 +1,5 @@
 import React from 'react';
-// import MathJax from './mathjax';
+import Timer from './timer';
 import PropTypes from 'prop-types';
 
 class ResultsBox extends React.Component {
@@ -31,8 +31,8 @@ class ResultsBox extends React.Component {
                     <input value={this.state.input} onChange={this.handleChange} type="text" class="form-control area-total-input" placeholder="Ejemplo: x²+7x-5"></input>
                 </div> 
 
-                 {/* ========= ========= */}  
                  <input onClick={() => handleButtonClicType2(this.state.input)} type="submit" value="Revisar" class={'btn btn-outline-dark ' + this.props.testView}></input>                                                       
+                 <Timer testView={this.props.testView} power={this.props.powerClock}></Timer>
             </div>
         {/* ========= ========= ========= ========= ========= */}
         </div>
