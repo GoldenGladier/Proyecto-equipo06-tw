@@ -28,7 +28,7 @@ class ResultsBox extends React.Component {
                 </div>
                 <div className="results-total-area-model">
                     <h3>Area total</h3>  
-                    <input value={this.state.input} onChange={this.handleChange} type="text" class="form-control area-total-input" placeholder="Ejemplo: x²+7x-5"></input>
+                    <input value={this.state.input} onChange={this.handleChange} type="text" class={"form-control area-total-input " + this.props.testView} placeholder="Ejemplo: x²+7x-5"></input>
                 </div> 
 
                  <input onClick={() => handleButtonClicType2(this.state.input)} type="submit" value="Revisar" class={'btn btn-outline-dark ' + this.props.testView}></input>                                                       

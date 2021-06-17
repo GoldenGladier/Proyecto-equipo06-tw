@@ -186,6 +186,12 @@ h1,h2,h3,h4,p{
     display: none !important;
 }
 
+/* input.disable-view{
+    display: initial !important;
+    pointer-events: none !important;
+} */
+
+
 /* RELOJ/TIMER */
 
 .timer{

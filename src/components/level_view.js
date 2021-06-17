@@ -46,108 +46,12 @@ class Level extends React.Component {
         }
     }
 
-    handleInput1Change = (input1) => {
-        console.log("PADRE 1: " + input1);
-        if(input1 != ''){
-            if(isNaN(this.state.sizeh1)){
-                var numero = input1 + this.state.sizeh1;
-                this.setState({square1:numero});
-                // this.setState({square1:numero});
-            }
-            else{
-                // console.log(this.state.sizeh1 + '*' + input1);
-                var n1 = parseInt(input1);
-                var n2 = parseInt(this.state.sizeh1);
-                var numero = n1 * n2;
-                this.setState({square1:numero});
-                // this.setState({square1:numero});                
-            }
-            console.log(this.state.square1);
-            var n1 = parseInt(input1);
-            var binom;            
-            if(n1 >= 0){
-                binom = "(" + this.state.sizew1 + "+" + input1 + ")";
-            } 
-            else{
-                binom = "(" + this.state.sizew1 + input1 + ")";
-            }           
-            this.setState({binom1:binom});            
-        }
-        else{
-            this.setState({binom1:"()"});             
-            this.setState({square1:'?'});   
-        }
-    }
-    handleInput2Change = (input2) => {
-        console.log("PADRE 2: " + input2);
-        if(input2 != ''){
-            if(isNaN(this.state.sizew1)){
-                var numero = input2 + this.state.sizew1;
-                this.setState({square3:numero});
-                console.log("Incognita");
-            }
-            else{
-                var n1 = parseInt(input2);
-                var n2 = parseInt(this.state.sizew1);
-                var numero = n1 * n2;
-                this.setState({square3:numero});                
-            }
-            console.log(this.state.square3);
-            // var binom = "(" + this.state.sizeh1 + "+" + input2 + ")";
-            var n1 = parseInt(input2);
-            var binom;            
-            if(n1 >= 0){
-                binom = "(" + this.state.sizeh1 + "+" + input2 + ")";
-            } 
-            else{
-                binom = "(" + this.state.sizeh1 + input2 + ")";
-            }           
-            this.setState({binom2:binom});              
-        }
-        else{
-            this.setState({binom2:"()"});             
-            this.setState({square3:'?'});   
-        }              
-    }    
-
-    handleButtonClic = () => {
-        if((this.state.binom1 != '()') && (this.state.binom2 != '()')){
-            var respuestaUsuario = this.state.binom1 + this.state.binom2;
-            if(this.state.respuesta == respuestaUsuario){
-                swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success");
-                console.log("Revisando: Bien");
-            }
-            else{
-                swal("¡Esfuerzate más!", "Tu respuesta esta equivocada.", "error");
-                console.log("Revisando: Mal");
-            }
-        }
-        else{
-            swal("¡Faltan datos!", "Debes llenar ambos campos para completar los dos binomios.", "info");
-        }
-    }
-    handleButtonClicType2 = (respuesta_tipo2) => {       
-        console.log(respuesta_tipo2); 
-        if((respuesta_tipo2 != '')){
-            if(respuesta_tipo2 == this.state.expresion){
-                swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success");
-                console.log("Revisando: Bien");
-            }
-            else{
-                swal("¡Esfuerzate más!", "Tu respuesta esta equivocada.", "error");
-                console.log("Revisando: Mal");
-            }
-        }
-        else{
-            swal("¡Ingresa una respuesta!", "El campo de respuesta esta vacio.", "info");
-        }
-    }
     render() {
         let tablero = '';
         let resultados = '';
         const { 
             nombre, tipo, width, height, sizeh1, sizeh2_answer, sizew1, sizew2_answer, 
-            square1, square2, square3, square4, expresion, respuesta
+            square1, square2, square3, square4, expresion, respuesta, testView
         } = this.state;
         // ========= DIBUJANDO LA CAJA/TABLERO ========= 
         if(parseInt(this.state.tipo) == 1) {   
@@ -155,18 +59,16 @@ class Level extends React.Component {
             resultados = (
                 <ResultBox1 multiple1={this.state.binom1} multiple2={this.state.binom2}
                 totalArea={expresion} handleButtonClic={this.handleButtonClic}
-                testView={this.state.testView}></ResultBox1>
+                testView={testView}></ResultBox1>
             );            
             tablero = (
                 <TableBox1 width={width} height={height} sizeh1={sizeh1} sizeh2={sizeh2_answer} 
                     equation1={sizew1} equation2={sizew2_answer} square1={this.state.square1} square2={square2}
                     square3={this.state.square3} square4={square4} binom1={this.state.binom1}
                     handleInput1Change={this.handleInput1Change} handleInput2Change={this.handleInput2Change}
+                    testView={testView}
                 ></TableBox1>  
             );
-
-            // tablero = (<h1>HolaTablero1</h1>);
-            // resultados = (<h1>Hola1</h1>);
         }
         else{
             console.log(this.state.tipo + " - Cargue el 2" + sizeh2_answer);
@@ -175,13 +77,13 @@ class Level extends React.Component {
                     equation1={sizew1} equation2={sizew2_answer} square1={this.state.square1} square2={square2}
                     square3={this.state.square3} square4={square4} 
                     handleInput1Change={this.handleInput1Change} handleInput2Change={this.handleInput2Change}
+                    testView={testView}
                 ></TableBox2>  
             );
             resultados = (
-                <ResultBox2 binoms={respuesta} testView={this.state.testView}
+                <ResultBox2 binoms={respuesta} testView={testView}
                 totalArea={expresion} handleButtonClicType2={this.handleButtonClicType2}></ResultBox2>
             );  
-            // resultados = (<h1>Hola2</h1>)
         }
         
         return (

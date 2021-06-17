@@ -165,6 +165,7 @@ class Level extends React.Component {
                     equation1={sizew1} equation2={sizew2_answer} square1={this.state.square1} square2={square2}
                     square3={this.state.square3} square4={square4} binom1={this.state.binom1}
                     handleInput1Change={this.handleInput1Change} handleInput2Change={this.handleInput2Change}
+                    testView={this.state.testView}
                 ></TableBox1>  
             );
 
@@ -178,6 +179,7 @@ class Level extends React.Component {
                     equation1={sizew1} equation2={sizew2_answer} square1={this.state.square1} square2={square2}
                     square3={this.state.square3} square4={square4} 
                     handleInput1Change={this.handleInput1Change} handleInput2Change={this.handleInput2Change}
+                    testView={this.state.testView}
                 ></TableBox2>  
             );
             resultados = (
