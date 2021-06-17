@@ -17,10 +17,10 @@ class Create extends React.Component {
                     <hr />
                     {/*<!--LEVEL OPTION--> */}
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Tipo: Completar </span>
+                        <span class="input-group-text" id="basic-addon1">Tipo </span>
                         <select name="tipo" class="form-control" aria-describedby="basic-addon1" required>
-                            <option value="1">Dimensiones</option>
-                            <option value="2">Area total</option>
+                            <option value="1">Completar dimensiones</option>
+                            <option value="2">Completar Area total</option>
                         </select>
                     </div>
                     <hr />
@@ -50,7 +50,7 @@ class Create extends React.Component {
                         <input type="number" class="form-control" name="area4" placeholder="62" aria-describedby="basic-addon1" required />
                     </div>
                     <hr />
-                    {/*DIMENSION EXPRETIONS*/}
+                    {/*DIMENSION EXPRESSIONS*/}
                     <h4>Dimensiones</h4><br />
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">x + </span>
@@ -60,18 +60,25 @@ class Create extends React.Component {
                         <span class="input-group-text" id="basic-addon1">x + </span>
                         <input type="number" class="form-control" placeholder="7" aria-describedby="basic-addon1" name="dim2" required />                       
                     </div><br />
-                    {/*AREA EXPRETION*/}
+                    {/*AREA EXPRESSION*/}
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Expresion de Area total: </span>
+                        <span class="input-group-text" id="basic-addon1">Expresion de Area total </span>
                         <input type="text" class="form-control" placeholder="x^2-13x+42" pattern="x\^2[+-][0-9]*x[+-][0-9]+" minLength="5" aria-describedby="basic-addon1" name="expresion" required />                       
                     </div>
                     <hr />
-
+                    {/*MULTIMEDIA*/}
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Imagen: </span>
-                        <input type="file" class="form-control" id="file"  name = "file_image" required />
+                        <span class="input-group-text" id="basic-addon1">Tipo de multimedio </span>
+                        <select name="tipo_multimedio" class="form-control" aria-describedby="basic-addon1" required>
+                            <option value="audio">Audio</option>
+                            <option value="imagen">Imagen</option>
+                            <option value="video">Video</option>
+                        </select>
                     </div>
-             
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Multimedio </span>
+                        <input type="file" class="form-control" id="file"  name = "file" required />
+                    </div>
                     <button type="submit" class="btn btn-primary">Crear Pregunta</button>
                     <br /><br />
                 </form>                 

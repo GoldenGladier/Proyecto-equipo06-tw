@@ -6,7 +6,6 @@ import {
 import Home from "./components/home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.css"
-import Info from "./components/info";
 import Create from "./components/create";
 import Edit from "./components/edit";
 import Level1 from "./components/level1";
@@ -26,9 +25,6 @@ const App = () => {
                 </Route>                
                 <Route exact path="/Algebra_model_game/home">
                     <Home />
-                </Route>                
-                <Route exact path="/Algebra_model_game/info">
-                    <Info />
                 </Route>
                 <Route exact path="/Algebra_model_game/crearPregunta">
                     <Create />

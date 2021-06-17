@@ -1,5 +1,7 @@
 import React from "react";
 import './css/level.css';
+//PARA LOS REPRODUCTORES DE MULTIMEDIA
+import ReactPlayer from "react-player";// REPRODUCTOR DE VIDEO
 // IMPORTANDO COMPONENTES
 import { Link } from "react-router-dom";
 import TableBox1 from './tableBox';
@@ -7,8 +9,12 @@ import TableBox2 from './tableBox2';
 import ResultBox1 from './resultsBox';
 import ResultBox2 from './resultsBox2';
 import swal from 'sweetalert';
+import {Howl, Howler} from 'howler'; //PARA REPRODUCIR LOS EFECTOS DE SONIDO
 // PARA TRAER LOS DATOS Y PROCESARLOS
 import axios from "axios";
+import { atomicMassDependencies } from "mathjs";
+
+const soundeffects = ["TaDa.mp3","Sad.mp3","StoreDoor.mp3"]; 
 
 class Level extends React.Component {
     state = { //Creando todos los estates que necesitaremos
@@ -25,6 +31,8 @@ class Level extends React.Component {
         square2: "",
         square3: "",
         square4: "",
+        multimedio: "",
+        src: "",
         expresion: "",        
         respuesta: "",        
 
@@ -48,6 +56,16 @@ class Level extends React.Component {
             });
         }
     }
+    
+
+    soundPlay = (src) => { //Función para reproducir efectos de sonido
+        const sound = new Howl({
+            src,
+            html5: true
+        })
+        sound.play();
+    }
+    
     // Detecta los cambios en el input 1 ejercicio tipo 1
     handleInput1Change = (input1) => {
         console.log("PADRE 1: " + input1);
@@ -125,14 +143,18 @@ class Level extends React.Component {
                 this.setState({powerClock: "apagado"}); //Detiene el temporizador
                 swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success"); // Notifica que se contesto bien
                 console.log("Revisando: Bien");
+                this.soundPlay(soundeffects[0]); // Efecto de sonido
+                
             }
             else{
                 swal("¡Esfuerzate más!", "Tu respuesta esta equivocada.", "error"); // Notifica que se contesto mal
                 console.log("Revisando: Mal");
+                this.soundPlay(soundeffects[1]);// Efecto de sonido
             }
         }
         else{ // Notifica que no ingreso datos
             swal("¡Faltan datos!", "Debes llenar ambos campos para completar los dos binomios.", "info");
+            this.soundPlay(soundeffects[2]);// Efecto de sonido
         }
     }
     handleButtonClicType2 = (respuesta_tipo2) => {      //Cuando el boton revisar ejercicio tipo 2 es precionado
@@ -142,14 +164,17 @@ class Level extends React.Component {
                 this.setState({powerClock: "apagado"});//Detiene el temporizador
                 swal("¡Buen trabajo!", "Respondiste esta pregunta correctamente.", "success");// Notifica que se contesto bien
                 console.log("Revisando: Bien");
+                this.soundPlay(soundeffects[0]);// Efecto de sonido
             }
             else{
                 swal("¡Esfuerzate más!", "Tu respuesta esta equivocada.", "error");// Notifica que se contesto mal
                 console.log("Revisando: Mal");
+                this.soundPlay(soundeffects[1]);// Efecto de sonido
             }
         }
         else{// Notifica que no ingreso datos
             swal("¡Ingresa una respuesta!", "El campo de respuesta esta vacio.", "info");
+            this.soundPlay(soundeffects[2]);// Efecto de sonido
         }
     }
     mostrarTeclado = () => { // Muestra el teclado ejercicio tipo 2
@@ -162,13 +187,14 @@ class Level extends React.Component {
         this.setState({teclado: 'disable-view'});
         console.log("Ocultar teclado" + this.state.teclado);
     }    
-
+    
     render() {
         let tablero = ''; // Para contruir el tablero
         let resultados = ''; // para contruir resultados
-        const {     // Constantes que vamos a usar (al final no utilizamos todas)
+        let multimedia = ''; //Para controlar el multimedio
+        const { // Constantes que vamos a usar (al final no utilizamos todas)
             nombre, tipo, width, height, sizeh1, sizeh2_answer, sizew1, sizew2_answer, 
-            square1, square2, square3, square4, expresion, respuesta
+            square1, square2, square3, square4, expresion, respuesta, multimedio, src
         } = this.state;
         // ========= DIBUJANDO LA CAJA/TABLERO ========= 
         if(parseInt(this.state.tipo) == 1) {   // Cambbia los componentes depentiendo del tipo de ejercicio
@@ -205,6 +231,24 @@ class Level extends React.Component {
                 ></ResultBox2>
             );  
         }
+
+        {/*SE DEFINE EL TIPO DE MULTIMEDIO A MOSTRAR */}
+        if(this.state.multimedio == "video"){
+            multimedia = (
+                <ReactPlayer playing url = {src} width = "50%" heigth = "50%" controls/>
+            );
+        }else if(this.state.multimedio == "audio"){
+            multimedia = (
+                <audio controls="controls">
+                <source src={src} type="audio/mpeg" />
+                Tu navegador no soporta el elemento de audio.
+                </audio>
+            );
+        }else{
+            multimedia = (
+                <img src={src} />
+            );
+        }
         
         return (
             <div className="Level" >
@@ -226,7 +270,12 @@ class Level extends React.Component {
                     {tablero} 
                     {resultados} 
                     
-                </div>                
+                </div>
+                <hr />
+                {/*MULTIMEDIA*/}
+                <div className="multimedia" >
+                    {multimedia}
+                </div>           
             </div>
         )
     }
@@ -234,4 +283,3 @@ class Level extends React.Component {
 }
 
 export default Level;
-

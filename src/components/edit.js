@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
-// import useState from 'react';
+import './css/level.css';
 
 class Edit extends React.Component {
 
@@ -21,12 +22,20 @@ class Edit extends React.Component {
             square2: "",
             square3: "",
             square4: "",
-            imagen:"",
+            multimedio:"",
+            src:"",
             expresion: "",        
             respuesta: "",
         };
     }
     
+    definirTipo (tipo) {
+        if(tipo == "1"){
+            this.setState({tipo: "binomios"});
+        }else{
+            this.setState({tipo: "Area total"});
+        }
+    }
 
     componentDidMount() {
         const qId = new URLSearchParams(window.location.search).get("id");
@@ -34,7 +43,7 @@ class Edit extends React.Component {
             axios.get("/Algebra_model_game/Preguntas?id="+qId).then(response => {
                 const question = response.data[0];
                 this.setState({ ...question });
-                console.log(response);
+                this.definirTipo(this.state.tipo);
             }).catch(error => {
                 console.info(error);
                 alert("Ha ocurrido un error");
@@ -48,6 +57,16 @@ class Edit extends React.Component {
         return (
             
             <Container className="MarginContainer">
+               <div className="Level"> <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                            <h1 class="navbar-brand">{this.state.nombre}</h1>
+                        <span class="navbar-text">
+                            <Link to="/Algebra_model_game/" class="btn btn-outline-light">Volver al inicio</Link>                            
+                        </span>                        
+                    </div>
+                </nav>
+                </div>
+
                 <h1>Modificar ejercicio</h1>
 
                 <form method="POST" action={"updateQuestion?idList=" + this.state.id} enctype = "multipart/form-data">
@@ -60,10 +79,10 @@ class Edit extends React.Component {
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">{`Tipo actual: Completar ${this.state.tipo}`}</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="input-group-text" id="basic-addon1">Tipo nuevo: Completar </span>
+                        <span class="input-group-text" id="basic-addon1">Tipo nuevo </span>
                         <select name="tipo" class="form-control" aria-describedby="basic-addon1" required>
-                            <option value="1">Dimensiones</option>
-                            <option value="2">Area total</option>
+                            <option value="1">Completar dimensiones</option>
+                            <option value="2">Completar Area total</option>
                         </select>
                     </div>
                     <hr />
@@ -96,8 +115,7 @@ class Edit extends React.Component {
                     {/*DIMENSION EXPRETIONS*/}
                     
                     <div class="input-group mb-3">
-                    <p class="input-group-text">Dimensiones actuales</p><br />
-                        <span class="input-group-text" id="basic-addon1">{`${this.state.respuesta}`}</span>
+                        <span class="input-group-text" id="basic-addon1">Dimensiones actuales: {`${this.state.respuesta}`}</span>
                     </div>
                     <h4>Dimensiones nuevas</h4><br />
                     <div class="input-group mb-3">
@@ -114,11 +132,21 @@ class Edit extends React.Component {
                         <input type="text" class="form-control" defaultValue={this.state.expresion} placeholder="x^2-13x+42" pattern="x\^2[+-][0-9]*x[+-][0-9]+" minLength="5" aria-describedby="basic-addon1" name="expresion" required />                       
                     </div>
                     <hr />
-
+                    {/*MULTIMEDIA*/}
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Imagen actual: <a href={this.state.imagen} > {this.state.imagen}</a> </span>
-                        <span class="input-group-text" id="basic-addon1">Imagen nueva: </span>
-                        <input type="file" class="form-control" id="file"  name = "file_image" required />
+                        <span class="input-group-text" id="basic-addon1">Multimedio actual:  {`${this.state.src}`}</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Tipo de multimedio </span>
+                        <select name="tipo_multimedio" class="form-control" aria-describedby="basic-addon1" required>
+                            <option value="audio">Audio</option>
+                            <option value="imagen">Imagen</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Multimedio nuevo:</span>
+                        <input type="file" class="form-control" id="file"  name = "file" required />
                     </div>
              
                     <button type="submit" class="btn btn-primary">Actualizar ejercicio</button>
