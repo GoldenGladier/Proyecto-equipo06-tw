@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Pregunta from "./pregunta";
 
+// import './css/home.css';
+
 class Home extends React.Component {
 
     state = {

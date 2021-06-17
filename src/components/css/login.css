@@ -1,0 +1,90 @@
+.containerPrincipal{
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%,-50%);
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+    color: white;
+
+    background-image:url("../css/w5.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;    
+    backdrop-filter: blur(10px);
+}
+.Titulo{
+    text-align: center;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 35px;
+
+}
+.usuario-no-registrado{
+    color:aliceblue; 
+    text-align: center;
+    width: 70%;
+    margin: auto; 
+    margin-top: 15vh;
+    padding: 10px !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+    background: #0000001a;
+
+    background-image:url("../css/w5.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;    
+    backdrop-filter: blur(10px);    
+    border-radius: 15px;
+}
+.usuario-no-registrado i{
+    font-size: 10rem;
+}
+.regreso{
+    background: #000030;
+    color: rgb(255, 255, 255); 
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+.containerSecundario{
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: aliceblue;
+
+}
+.imagen{
+    height: 150px;
+    width: 150px;
+}
+
+/* body{
+    background-color: #89e1f9;
+} */
+.mini{
+    height: 40px;
+    width: 40px;
+    position:sticky;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.ghost{
+    background: #000030;
+    border-radius: 5px;
+    color: rgb(255, 255, 255); 
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10%;
+
+    
+}
+button:hover{
+    background-color: rgb(13, 13, 97);
+}
+
+input{
+    text-align: center;
+    padding: 5px;
+}

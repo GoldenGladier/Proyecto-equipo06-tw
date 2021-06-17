@@ -13,24 +13,25 @@ const Pregunta = ({ id, nombre }) => {
         text: "¿Está seguro que desea eliminar esta pregunta", 
         icon: "warning", 
         buttons: ["No","Confirmar"]
-        }).then(respuesta => {
+        }).then(respuesta => { // Se ejecuta al darle a confirmar
             if(respuesta){
                 console.info(id + " llamo a la función eliminar.")
+                // Se envia el delete al backend
                 axios.get(`/Algebra_model_game/deleteQuestion?idList=${id}`).then(response => {
                     console.info(response.data);
-                    swal({ text: "La pregunta se ha eliminado exitosamente",
+                    swal({ text: "La pregunta se ha eliminado exitosamente", // Notificacion
                     icon:"success",
                     timer: "60000"
                     })
                 }).catch(error => {
                     console.info(error);
-                }).finally(() => {
-                    window.location.href = "/Algebra_model_game/";
+                }).finally(() => { // Recarga el crud
+                    window.location.href = "/Algebra_model_game/home";
                 });
 
                 
             }else{
-                window.location.href = "/Algebra_model_game/";
+                window.location.href = "/Algebra_model_game/home"; // Recara el crud
             }
         })
     }

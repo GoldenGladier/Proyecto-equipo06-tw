@@ -11,14 +11,22 @@ import Create from "./components/create";
 import Edit from "./components/edit";
 import Level1 from "./components/level1";
 import LevelView from "./components/level_view";
+import Login from './components/login_users';
+import NotRegister from './components/Regde';
 
 const App = () => {
     return (
         <div>
             <Switch>
                 <Route exact path="/Algebra_model_game/">
-                    <Home />
+                    <Login />
                 </Route>
+                <Route exact path="/Algebra_model_game/usuario_no_registrado">
+                    <NotRegister />
+                </Route>                
+                <Route exact path="/Algebra_model_game/home">
+                    <Home />
+                </Route>                
                 <Route exact path="/Algebra_model_game/info">
                     <Info />
                 </Route>
